@@ -1,0 +1,102 @@
+
+body, h1, form, label, input, p {
+    margin: 0;
+    padding: 0;
+}
+
+
+body {
+    font-family: 'Arial', sans-serif;
+    background-color: #f4f4f9;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    margin: 0;
+}
+
+
+.container {
+    background: #ffffff;
+    padding: 20px; /* Reduced padding */
+    border-radius: 10px;
+    box-shadow: 0 8px 8px rgba(0, 0, 0, 0.1);
+    border: 1px solid #ddd;
+    max-width: 320px; /* Reduced max-width */
+    width: 100%;
+    text-align: center
+}
+h1 {
+    font-size: 1.4em; 
+    color: #043899;
+    margin-top: 10px;
+    margin-bottom: 20px; 
+    font-weight: 700;
+}
+img{
+    width: 50%;
+    height:20%;
+    border-radius: 10%;
+
+}
+form {
+    display: flex;
+    flex-direction: column;
+    gap: 6px; 
+}
+
+
+label {
+    font-size: 0.9em; 
+    color: #000000;
+    margin-bottom: 4px;
+    text-align: left;
+    font-weight: 700;
+}
+
+input[type="text"],
+input[type="email"],
+input[type="password"] {
+    padding: 10px; /* Reduced padding */
+    border: 1.5px solid #ddd;
+    border-radius: 5px;
+    font-size: 0.9em; /* Smaller font size for input fields */
+    width: 100%;
+    box-sizing: border-box;
+    outline: none;
+    transition: border-color 0.3s;
+    font: bolder;
+}
+
+input[type="text"]:focus,
+input[type="email"]:focus,
+input[type="password"]:focus {
+    border-color: #7ebbfd;
+}
+
+/* Submit button styling */
+input[type="submit"] {
+    padding: 10px;
+    font-size: 1em; /* Smaller font size for the button */
+    color: #fff;
+    background-color: #485670;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s, transform 0.3s;
+}
+
+input[type="submit"]:hover {
+    background-color: #0056b3;
+    transform: translateY(-2px);
+}
+
+input[type="submit"]:active {
+    transform: translateY(0);
+}
+
+#message {
+    margin-top: 15px;
+    font-size: 0.9em; 
+    color: #f00d06; 
+}

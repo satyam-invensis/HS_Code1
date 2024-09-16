@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Login Form</title>
+    <link rel="stylesheet" href="style.css">
+    <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
+</head>
+<body>
+    <div class="container">
+        <img src="https://pmo.invensis.net/web/binary/company_logo" alt="">
+        <h1><u>Login Form</u></h1>
+        <form onsubmit="login(); return false;">
+            <label for="email">Email</label>
+            <input type="email" id="email" placeholder="Enter your email" required>
+            <label for="password">Password</label>
+            <input type="password" id="password" placeholder="Enter your password" required>
+            <input type="submit" value="Login">
+        </form>
+        <p id="message"></p>
+        <p><a href="index.html">Don't have an account? Sign up here</a></p>
+    </div>
+    <script>
+       function login() {
+    var email = document.getElementById('email').value;
+    var password = document.getElementById('password').value;
+    
+    if (!email || !password) {
+        document.querySelector("#message").innerHTML = "Please fill in both email and password.";
+        return;
+    }
+    
+    // Regex for basic email validation
+    var emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+    if (!emailRegex.test(email)) {
+        document.querySelector("#message").innerHTML = "Please enter a valid email address.";
+        return;
+    }
+
+    axios.post('http://localhost:3000/login', { email, password })
+        .then(function (response) {
+            console.log(response.data);
+            document.querySelector("#message").innerHTML = response.data.message;
+            if (response.data.redirectUrl) {
+                window.location.href = response.data.redirectUrl;
+            }
+        })
+        .catch(function (error) {
+            console.log(error.response.data);
+            document.querySelector("#message").innerHTML = error.response.data.message;
+        });
+}
+
+    </script>
+</body>
+</html>

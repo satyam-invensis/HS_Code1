@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="style.css" type="text/css" />
+    <title>HS Code Prediction</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #f4f4f9;
+        }
+        .container {
+            text-align: center;
+            margin-top: 20px;
+        }
+        .header-image {
+            margin-bottom: 20px;
+        }
+        h1 {
+            color: #333;
+        }
+        input[type="text"] {
+            padding: 10px;
+            margin-bottom: 10px;
+            width: 80%;
+            max-width: 400px;
+            border: 1px solid #ddd;
+            border-radius: 5px;
+        }
+        button {
+            padding: 10px 20px;
+            border: none;
+            border-radius: 5px;
+            background-color: #007bff;
+            color: #fff;
+            font-size: 16px;
+            cursor: pointer;
+        }
+        button:hover {
+            background-color: #0056b3;
+        }
+        #resultContainer {
+            margin-top: 20px;
+        }
+        #backButton {
+            display: none; /* Initially hidden */
+            margin-top: 20px;
+        }
+        #loading {
+            display: none;
+            margin-top: 20px;
+            font-size: 18px;
+        }
+    </style>
+</head>
+<body>
+    <div class="container" id="inputSection">
+        <img src="InvensisLogo.png" alt="Header Image" width="1200px" class="header-image">
+        <h1>ENTER THE PRODUCT DESCRIPTION</h1>
+       <form id="predictionForm" method="POST" action="/predict">
+    <input type="text" id="inputText" name="text" placeholder="Type something..." required>
+    <br>
+    <button type="submit">Predict</button>
+</form>
+        <!-- Loading indicator -->
+        <div id="loading">Loading...</div>
+
+        <!-- Container for results -->
+        <div id="resultContainer"></div>
+
+        <!-- Back button -->
+        <button id="backButton" onclick="window.location.href='http://localhost:3000/Frontend/index.html'">Back</button>
+    </div>
+
+    <!-- Include JavaScript file -->
+    <script src="script.js"></script>
+</body>
+</html>
